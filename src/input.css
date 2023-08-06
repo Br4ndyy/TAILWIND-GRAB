@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer components{
+    .header{
+        position: fixed;
+        background-color: pink;
+        width: 100%;
+    }
+
+    .header__wrapper{
+        @apply my-[0.5rem] mx-[1rem]
+    }
+    .header .toggle__menu{
+        @apply flex flex-col gap-[0.3rem]
+    }
+    .header .toggle__menu span{
+        @apply w-[1.5rem] h-[0.2rem] bg-medyoblack rounded-full
+    }
+    .header .header__nav{
+        @apply hidden
+    }
+    .branding{
+        @apply flex items-center gap-[1.5rem]
+    }
+    .branding img{
+        @apply w-[5rem]
+    }
+}

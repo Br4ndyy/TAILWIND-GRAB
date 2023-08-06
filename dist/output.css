@@ -533,3 +533,44 @@ video {
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
+
+.header{
+  position: fixed;
+  background-color: pink;
+  width: 100%;
+}
+
+.header__wrapper {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.header .toggle__menu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.header .toggle__menu span {
+  height: 0.2rem;
+  width: 1.5rem;
+  border-radius: 9999px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(51 51 51 / var(--tw-bg-opacity));
+}
+
+.header .header__nav {
+  display: none;
+}
+
+.branding {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.branding img {
+  width: 5rem;
+}
