@@ -561,8 +561,17 @@ video {
   background-color: rgb(51 51 51 / var(--tw-bg-opacity));
 }
 
+.header .header__nav .btn {
+  display: flex;
+  justify-content: space-between;
+}
+
 .header .header__nav {
   display: none;
+}
+
+.header .header__nav.open {
+  display: block;
 }
 
 .branding {
@@ -573,4 +582,20 @@ video {
 
 .branding img {
   width: 5rem;
+}
+
+.header__nav .drop {
+  display: none;
+}
+
+.header__nav .drop.open {
+  display: block;
+}
+
+.transition {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
 }
