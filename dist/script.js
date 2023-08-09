@@ -10,12 +10,23 @@ toggleMenu.addEventListener('click', () => {
 
 hNav.forEach((nav) => {
 	nav.addEventListener('click', () => {
-		removeActiveNav();
-		nav.classList.toggle('active');
-		nav.querySelector('i').classList.toggle('active');
-		const activeContent = document.querySelector(`#${nav.id}-content`);
+		if (nav.classList.contains('active')) {
+			removeActiveNav();
+			removeActiveContent();
+		} else {
+			removeActiveNav();
+			nav.classList.toggle('active');
+			nav.querySelector('i').classList.toggle('active');
+			const activeContent = document.querySelector(`#${nav.id}-content`);
+			removeActiveContent();
+			activeContent.classList.toggle('active');
+		}
+	});
+});
+
+hContent.forEach((content) => {
+	content.addEventListener('click', () => {
 		removeActiveContent();
-		activeContent.classList.toggle('active');
 	});
 });
 
@@ -24,11 +35,12 @@ hNav.forEach((nav) => {
 function removeActiveNav() {
 	hNav.forEach((nav) => {
 		nav.classList.remove('active');
+		nav.querySelector('i').classList.remove('active');
 	});
 }
 
 function removeActiveContent() {
-	hContent.forEach((nav) => {
-		nav.classList.remove('active');
+	hContent.forEach((content) => {
+		content.classList.remove('active');
 	});
 }
