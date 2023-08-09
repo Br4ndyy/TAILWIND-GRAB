@@ -2,42 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+	.header {
+		position: fixed;
+		background-color: pink;
+		width: 100%;
+	}
 
-@layer components{
-    .header{
-        position: fixed;
-        background-color: pink;
-        width: 100%;
-    }
-
-    .header__wrapper{
-        @apply my-[0.5rem] mx-[1rem]
-    }
-    .header .toggle__menu{
-        @apply flex flex-col gap-[0.3rem]
-    }
-    .header .toggle__menu span{
-        @apply w-[1.5rem] h-[0.2rem] bg-medyoblack rounded-full
-    }
-    .header .header__nav .btn{
-        @apply flex justify-between
-    }
-    .header .header__nav{
-        @apply hidden
-    }
-    .header .header__nav.open{
-        @apply block
-    }
-    .branding{
-        @apply flex items-center gap-[1.5rem]
-    }
-    .branding img{
-        @apply w-[5rem]
-    }
-    .header__nav .drop{
-        @apply hidden
-    }
-    .header__nav .drop.open{
-        @apply block
-    }
+	.header__wrapper {
+		@apply my-[0.5rem] mx-[1rem];
+	}
+	.header .toggle__menu {
+		@apply flex flex-col gap-[0.3rem];
+	}
+	.header .toggle__menu span {
+		@apply w-[1.5rem] h-[0.2rem] bg-medyoblack rounded-full;
+	}
+	.header .header__nav {
+		@apply hidden;
+	}
+	.header .header__nav a {
+		@apply flex flex-row justify-between;
+	}
+	.header .header__nav.open {
+		@apply block;
+	}
+	.branding {
+		@apply flex items-center gap-[1.5rem];
+	}
+	.branding img {
+		@apply w-[5rem];
+	}
+	.header__nav ul {
+		@apply max-h-[0rem] overflow-hidden bg-red-600;
+	}
+	.header__nav ul.active {
+		@apply max-h-[100rem];
+	}
 }

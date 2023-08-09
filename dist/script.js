@@ -1,29 +1,34 @@
 const toggleMenu = document.querySelector('.toggle__menu');
 const headerNav = document.querySelector('.header__nav');
-const drop = document.querySelectorAll('ul.header__nav a');
-const alternate = document.querySelector('ul.header__nav ul.drop');
+const hNav = document.querySelectorAll('.header__nav__link');
+const hContent = document.querySelectorAll('.drop');
 
-function removeActiveDrop() {
-    alternate.forEach((rmv) => {
-        rmv.classList.remove('open');
-    })
-}
-
-toggleMenu.addEventListener('click',() =>{
-    toggleMenu.classList.toggle('open');
-    headerNav.classList.toggle('open');
+toggleMenu.addEventListener('click', () => {
+	toggleMenu.classList.toggle('open');
+	headerNav.classList.toggle('open');
 });
 
-drop.forEach((link) =>{
-	link.addEventListener("click", () => {
-		link.nextElementSibling.classList.toggle("open");
-		link.querySelector("i").classList.toggle("open");
-	})
-}); 
+hNav.forEach((nav) => {
+	nav.addEventListener('click', () => {
+		removeActiveNav();
+		nav.classList.toggle('active');
+		nav.querySelector('i').classList.toggle('active');
+		const activeContent = document.querySelector(`#${nav.id}-content`);
+		removeActiveContent();
+		activeContent.classList.toggle('active');
+	});
+});
 
-alternate.forEach((link2) => {
-    link2.addEventListener("click", () => {
-        removeActiveDrop();
-        link2.classList.add('open');
-    })
-})
+/*----------FUNCTIONS-------------*/
+
+function removeActiveNav() {
+	hNav.forEach((nav) => {
+		nav.classList.remove('active');
+	});
+}
+
+function removeActiveContent() {
+	hContent.forEach((nav) => {
+		nav.classList.remove('active');
+	});
+}
