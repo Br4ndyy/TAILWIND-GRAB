@@ -5,38 +5,86 @@
 @layer components {
 	.header {
 		position: fixed;
-		background-color: pink;
+		background-color: white;
 		width: 100%;
 	}
 
 	.header__wrapper {
-		@apply my-[0.5rem] mx-[1rem];
+		@apply my-[0.5rem] mx-[1rem] flex flex-col relative
 	}
 	.header .toggle__menu {
 		@apply flex flex-col gap-[0.3rem];
 	}
 	.header .toggle__menu span {
-		@apply w-[1.5rem] h-[0.2rem] bg-medyoblack rounded-full;
+		@apply w-[1.5rem] h-[0.2rem] bg-medyoblack rounded-full transition-all
+	}
+	.header .toggle__menu.open span:first-child {
+		@apply bg-textberde rotate-[-135deg] translate-y-[0.25rem] transition-all
+	}
+	.header .toggle__menu.open span:nth-child(2) {
+		@apply hidden
+	}
+	.header .toggle__menu.open span:last-child {
+		@apply bg-textberde rotate-[-45deg] translate-y-[-0.25rem] transition-all
 	}
 	.header .header__nav {
-		@apply hidden;
+		@apply hidden bg-puti
 	}
 	.header .header__nav a {
-		@apply flex flex-row justify-between;
+		@apply flex flex-row justify-between m-[1rem]
+	}
+	.header .header__nav a i{
+		@apply transition-all
+	}
+	.header .header__nav a i.active{
+		@apply rotate-90 transition-all
+	}
+	.header .header__nav ul li a{
+		@apply m-0
 	}
 	.header .header__nav.open {
-		@apply block;
+		@apply block
 	}
-	.branding {
-		@apply flex items-center gap-[1.5rem];
+	.header__left {
+		@apply flex items-center justify-between
 	}
-	.branding img {
-		@apply w-[5rem];
+	.header__left .branding{
+		@apply flex gap-[1rem] items-center
 	}
-	.header__nav ul {
-		@apply max-h-[0rem] overflow-hidden bg-red-600;
+	.header__left .branding img{
+		@apply w-[5rem]
+	}
+	.header__nav ul.drop {
+		@apply max-h-[0rem] overflow-hidden flex flex-col gap-[0.5rem] ease-in-out duration-[0.5s]
+	}
+	.header__nav ul.drop li{
+		@apply border-[1px] border-medyoblack p-[1rem] mx-[2rem]
 	}
 	.header__nav ul.active {
-		@apply max-h-[100rem];
+		@apply max-h-[100rem]
+	}
+	.header__left #search-mobile{
+		@apply text-[1rem] p-[0.5rem] bg-transparent rounded-full transition-all bg-yellow-300
+		lg:hidden
+	}
+	.header__actions{
+		@apply hidden
+		lg:flex lg:flex-row lg:items-center
+	}
+	.header__actions #search-desktop{
+		@apply text-[1rem] p-[0.5rem] bg-transparent rounded-full transition-all
+		lg:block
+	}
+	.header__left #search-desktop.open{
+		@apply text-[1rem] pl-[10rem] bg-gray-300 rounded-full transition-all border-[1px] border-medyoblack
+	}
+	.partner .p__drop{
+		@apply lg:flex lg:items-center lg:gap-[1rem] 
+	}
+	.partner__content .p__dropdown{
+		@apply lg:hidden
+	}
+	.partner__content .p__dropdown.open{
+		@apply lg:block
 	}
 }
